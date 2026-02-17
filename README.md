@@ -16,11 +16,13 @@ it supports two extraction modes:
    - the trigger line itself, and
    - the next **N** lines after it (e.g., 100).
 
+![dumbex tui](https://raw.githubusercontent.com/sudotman/sudotman/refs/heads/main/demos/dumbex/Log_Extractor_2026-02-17T18_16_00_370093.svg)
+
 ## what does this repo have?
 - a **reusable core engine** (`log_extractor/core.py`)
 - a **CLI** (`log_extractor/cli.py`)
 - a **textual TUI** (`log_extractor/tui.py`) with a clean UI
----
+
 
 ## project structure
 ```text
@@ -191,7 +193,7 @@ python -m log_extractor.cli extract -i input.log -o extracted.log --config rules
 ---
 
 
-### run button appears to do nothing
+### run button appears to do nothing?
 
 check the **log panel** in the TUI. Common causes:
 - input path doesn’t exist
