@@ -1,0 +1,88 @@
+#root {
+  layout: vertical;
+  padding: 1;
+  row-span: 1;
+}
+
+.section_title {
+  text-style: bold;
+  padding: 0 0 1 0;
+}
+
+.hint {
+  color: #777777;
+  padding: 0 0 1 0;
+}
+
+.row {
+  column-span: 1;
+  height: auto;
+}
+
+.field_label {
+  width: 8;
+  color: #bbbbbb;
+}
+
+#files {
+  border: round #2b2b2b;
+  padding: 1;
+}
+
+#rules {
+  layout: grid;
+  grid-size: 2;
+  grid-columns: 1fr 1fr;
+  column-span: 2;
+  border: round #2b2b2b;
+  padding: 1;
+  height: 22;
+}
+
+#includes,
+#blocks {
+  height: 100%;
+}
+
+#include_list {
+  border: round #2b2b2b;
+  height: 1fr;
+}
+
+#block_table {
+  border: round #2b2b2b;
+  height: 1fr;
+}
+
+#run_panel {
+  border: round #2b2b2b;
+  padding: 1;
+}
+
+#status {
+  color: #dddddd;
+}
+
+#log {
+  border: round #2b2b2b;
+  height: 8;
+}
+
+TextPrompt,
+BlockPrompt {
+  align: center middle;
+}
+
+#dlg_title {
+  text-style: bold;
+  padding: 0 0 1 0;
+}
+
+#dlg_buttons {
+  padding: 1 0 0 0;
+  column-span: 1;
+}
+
+Input {
+  width: 50%;
+}
