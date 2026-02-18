@@ -14,3 +14,4 @@ class Rules:
     include: list[str]
     blocks: list[BlockRule]
     regex: bool = False
+    strip_timestamps: bool = False

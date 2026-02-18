@@ -157,8 +157,8 @@ class ExtractState:
 
 class LogExtractorTUI(App):
     CSS_PATH = "tui.tcss"
-    TITLE = "Log Extractor"
-    SUB_TITLE = "Include-lines + Trigger-block extraction"
+    TITLE = "dumbex"
+    SUB_TITLE = "a dumb but simple log filtering"
 
     def __init__(self):
         super().__init__()
@@ -218,6 +218,7 @@ class LogExtractorTUI(App):
                 with Horizontal(classes="row"):
                     yield Checkbox("Regex mode", id="opt_regex")
                     yield Checkbox("Separators on trigger", id="opt_sep")
+                    yield Checkbox("Strip timestamps", id="opt_strip_ts")
                 with Horizontal(classes="row"):
                     yield Label("Status", classes="field_label")
                     yield Static("Idle", id="status")
@@ -491,6 +492,7 @@ class LogExtractorTUI(App):
                 include=list(self.includes),
                 blocks=list(self.blocks),
                 regex=self.query_one("#opt_regex", Checkbox).value,
+                strip_timestamps=self.query_one("#opt_strip_ts", Checkbox).value,
             )
             separators = self.query_one("#opt_sep", Checkbox).value
 

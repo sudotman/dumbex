@@ -12,6 +12,17 @@ except ImportError:
 
 ProgressCb = Callable[[int, bool], None]
 
+# Strip leading bracketed blocks like [2026.02.17-13.05.15:784][120] at start of line
+_LEADING_BRACKETED_RE = re.compile(r"^(?:\[[^\]]*\]\s*)+")
+
+
+def _strip_timestamp_line(line: str) -> str:
+    """Remove timestamp/prefix so output starts at 'LogTemp:' or after leading brackets."""
+    if "LogTemp:" in line:
+        return line[line.index("LogTemp:") :]
+    rest = _LEADING_BRACKETED_RE.sub("", line.rstrip("\r\n")).lstrip()
+    return rest + "\n"
+
 
 def _compile_patterns(patterns: list[str], regex: bool):
     if not regex:
@@ -105,7 +116,8 @@ def extract_file(
                     active = [max(0, x - 1) for x in active]
 
             if print_this:
-                emit(line)
+                out = _strip_timestamp_line(line) if rules.strip_timestamps else line
+                emit(out)
 
             if progress_cb and (line_no % 5000 == 0):
                 progress_cb(line_no, False)
